@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekinchan | Nature's Heritage & Ecology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-soft: #EBF4DD;
+            --sage: #90AB8B;
+            --forest: #5A7863;
+            --dark-teal: #3B4953;
+            --white: #ffffff;
+			--dark-olivegreen: #556B2f;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--dark-teal);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--forest);
+        }
+	
+
+        /* --- Navigation --- */
+        header {
+            background: var(--bg-soft);
+            padding: 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(90, 120, 99, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--forest);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-teal);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--sage);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            color: var(--white);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* --- Content Layout --- */
+        section {
+            padding: 100px 10%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+            transition: var(--transition);
+            border: 1px solid rgba(144, 171, 139, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+		
+        }
+		
+		.frames {
+			background-color:rgb(0, 100, 0);   /* DarkGreen */
+            padding: 30px;
+            border-radius: 24px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 248, 220, 0.5);
+	
+}
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Custom Sections --- */
+        .dark-section {
+            background: var(--dark-teal);
+            color: var(--white);
+            border-radius: 40px;
+            margin: 40px 5%;
+        }
+		
+		.dark2-section {
+            background: var(--dark-olivegreen);
+            color: var(--white);
+            border-radius: 40px;
+            margin: 40px 5%;
+		}
+
+        .dark-section h2 { color: var(--bg-soft); }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--forest);
+            color: var(--white);
+            padding: 80px 10% 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        footer h4 { color: var(--bg-soft); margin-bottom: 25px; font-size: 1.2rem; }
+        footer p, footer a { font-size: 0.95rem; color: rgba(255,255,255,0.8); text-decoration: none; }
+        footer a:hover { color: var(--bg-soft); }
+
+        #backToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--forest);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 992px) {
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            section { padding: 70px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">SEKINCHAN (سكينچن)</a>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#ecosystem">Ecosystem</a></li>
+                <li><a href="#coastal">Coastal</a></li>
+                <li><a href="#issues">Issues</a></li>
+				<li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#tourism">Tourism</a></li>
+			
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="reveal active">
+            <h1>Town in Malaysia</h1>
+            <p>Located in Kuala Selangor, Selangor Darul Ehsan</p>
+        </div>
+    </div>
+
+    <section id="intro" class="reveal">
+        <div class="section-intro">
+            <h2>1. Introduction to Sekinchan</h2>
+             <p>
+        Sekinchan, derived from the Chinese name <em>适耕庄</em> 
+        (<em>Shì Gēng Zhuāng</em>), means "village suitable for farming". 
+		Located in the Sabak Bernam district of Selangor, the area is highly celebrated for its fertile land and favorable climate,
+		which support the cultivation of rice, fruits, and oil palm.
+    </p>
+
+    <p>
+        Beyond its lush green landscapes, Sekinchan uniquely balances two distinct economies: a thriving agricultural sector and a vibrant fishing industry. 
+It is recognized as one of the major rice-producing hubs in Malaysia, 
+		widely associated with exceptionally high paddy yields across approximately 4,300 acres of dedicated cultivation land.
+    </p>
+	<p>
+        Due to its highly efficient farming methods, Sekinchan has evolved from a scenic countryside town into a benchmark for modern agricultural innovation, serving as a model for high-yield farming practices nationwide.
+    </p>
+    </div>   
+        <div class="card">
+            <p>"We are looking into replicating several practices from Sekinchan, including the use of high-yield paddy seeds, fertilisers, and improve management techniques" </p>
+			<p><strong>— The Sun Malaysia, 4 February 2026</strong></p>
+        </div>
+		<section class="card-grid">
+    <div class="frames">
+        <img src="paddy.jpg" alt="Paddy Fields" style="width:100%; border-radius:15px; margin-bottom:0px;">
+    </div>
+
+    <div class="frames">
+        <img src="signboard.jpg" alt="Signboard" style="width:100%; border-radius:15px; margin-bottom:5px;">
+    </div>
+
+    <div class="frames">
+        <img src="upview.jpg" alt="Third Image" style="width:100%; border-radius:15px; margin-bottom:20px;">
+    </div>
+	
+	<div class="frames">
+        <img src="signs.jpg" alt="Signboard" style="width:100%; border-radius:15px; margin-bottom:20px;">
+    </div>
+</section>
+
+    <section id="ecosystem" style="background: rgba(100, 100, 139, 0.05);">
+        <div class="section-intro reveal">
+            <h2>2. Paddy Field Ecosystem 🌾</h2>
+            <p>Sekinchan is one of the highest-yielding rice production areas in Malaysia, utilizing a unique environment to maximize growth.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card reveal">
+                <h3>Biodiversity Support</h3>
+                <p>The flooded fields act as seasonal wetlands, supporting a variety of bird species, aquatic life, and beneficial insects that maintain the soil's health.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <h3>Irrigation Systems</h3>
+                <p>A sophisticated network of canals ensures a steady water supply, reflecting human ingenuity in managing natural water cycles for agriculture.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.4s;">
+                <h3>Food Security</h3>
+                <p>As a major rice producer, Sekinchan's ecosystem stability is directly linked to the national food supply and economic resilience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="coastal" style="background: rgba(0, 150, 140, 0.05);">
+        <div class="section-intro reveal">
+            <h2>3. Coastal Environment 🌊</h2>
+            <p>The western edge of Sekinchan borders the Straits of Malacca, creating a rich marine interface.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card reveal">
+                <h3>Fishing Heritage</h3>
+                <p>The Bagan fishing village demonstrates a sustainable relationship with the sea, where traditional methods are still practiced alongside modern needs.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Marine Protection</h3>
+                <p>Preserving the coastline is essential to protect the mangrove remnants that act as natural buffers against tides and storms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="issues" class="dark-section reveal">
+        <div style="padding: 70px;">
+            <h2>4. Critical Environmental Issues</h2>
+            <p>Despite its beauty, Sekinchan faces several ecological challenges that require urgent attention:</p>
+            <div class="card-grid" style="margin-top: 40px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                    <h4>Chemical Runoff</h4>
+                    <p>Excessive use of pesticides can seep into the water table, affecting both soil quality and local marine life.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                    <h4>Coastal Erosion</h4>
+                    <p>Rising sea levels and strong currents are gradually eating away at the shoreline, threatening coastal properties.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                    <h4>Climate Change</h4>
+                    <p>Shifting weather patterns cause unpredictable harvest cycles, impacting the livelihood of the farmers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sustainability" class="dark2-section reveal">
+        <div style="padding: 70px, color:LawnGreen, font-family: 'Playfair Display', serif;"
+            <h2>5. Path to Sustainability</h2>
+			</div>
+            <p>Efforts are being made to transition Sekinchan into a greener, more resilient community.</p>
+            <div class="card-grid" style="margin-top: 40px;">
+			    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                <h4>Sustainable Farming</h4>
+                <p>Farmers are increasingly encouraged to use organic fertilizers and integrated pest management to reduce chemical dependency.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                <h4>Pollution Control</h4>
+                <p>Community initiatives to reduce plastic waste and improve water treatment in the fishing ports are currently underway.</p>
+                </div>
+			</div>
+        </div>
+    </section>
+
+    <section id="tourism", style="background: rgba(0, 240, 245, 0.05);" class="reveal">
+        <div class="section-intro">
+            <h2>6. Tourism & The Natural Landscape 🌅</h2>
+            <p>Sekinchan's tourism industry is entirely dependent on its pristine natural views.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <img src="1.jpg" alt="Fields" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>The Paddy Fields</h3>
+                <p>Providing a sense of peace, these fields are the primary draw for eco-tourists seeking a slow-life experience.</p>
+            </div>
+            <div class="card">
+                <img src="2.jpg" alt="Beach" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Redang Beach</h3>
+                <p>A place where tourism meets the sea; famous for the wishing tree and sunset views.</p>
+            </div>
+            <div class="card">
+                <img src="3.jpg" alt="Culture" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Ah Ma House</h3>
+                <p>Celebrating the cultural heritage that has grown from this fertile land over generations.</p>
+			</div>
+			<div class="card">
+                <img src="4.jpg" alt="Culture" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Bagan Fishing Village</h3>
+                <p>The situation of this fishing village will change to very busy during the fishing boat back to the seaport, and you will see the fisherman busy with their work to unload their catching and the workers on the jetty are busy with categorizing according to types and sizes.
+				<br>We describe this fishing village as a Calm and Busy Fishing Village.
+				The Bagan fishing village has new shophouses, which mainly house seafood restaurants. The best seafood restaurants in town can be found in the Bagan areas.</br> </p>
+            </div>
+			<div class="card">
+                <img src="5.jpg" alt="Culture" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Terminal Sekinchan</h3>
+                <p>The Terminal Sekinchan, which houses a Boeing 727 aircraft amidst the paddy fields in Parit 5, will be a new attraction for the tourism sector in Sekinchan and Selangor. This terminal, which will be developed as a Premium Outlet Cafe in the future.
+				The area has become a focus for OOTD (Outfit of the Day) enthusiasts who come to Sekinchan because of its unique atmosphere that offers beautiful paddy field views.</p>
+			</div>
+			<div class="card">
+                <img src="6.jpg" alt="Culture" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Bird Watching</h3>
+                <p>Due to the location of Sekinchan facing the Malacca Strait and in the middle of the South China Sea and Jawa Island, there are many migratory birds. Sekinchan is a coastal fishing village and a large paddy field area where you can see open country birds. 
+				<br>Remarkably, the winter months are worthwhile visiting. 
+				The wetland where the bird inhabits has become a new tourist attraction, and many photographers like to visit here for migratory bird watching and photo taking.</br> </p>
+			</div>
+			<div class="card">
+                <img src="7.jpg" alt="Culture" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Nan Tian Temple</h3>
+                <p>Nan Tian Temple (or called Nine Emperors God Temple) is located at Site A; this is the only temple at Site A. Nan Tian Temple ( Nan Tian Gong) was established in 1984 and extended in 2004 into today's scale. Nan Tian Temple (Nan Tian Gong) become the landmark of Site A, Sekinchan. Every 1st to 9th of the Ninth month of the Lunar Calendar, the worshipers will celebrate the birthdays of the Nine Emperor Gods (Jiu Huang Ye or 九皇爷) for ten days. The most important religious event in Sekinchan.
+				<br>Nan Tian Temple is a perfect location for us to view the beauty of the paddy field; we can go up to the second floor of a tower in the temple and have a good view of the Sekinchan paddy field. </br> </p>
+            </div>
+			<div class="card">
+                <img src="8.jpg" alt="Culture" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h3>Sekinchan Wishing Tree</h3>
+                <p>The entire tree is tangled with hundreds of red ribbons (that represents all the wishes), and is really quite a pretty sight.
+				The Chinese Temple stands right next to the tree; where you can perform prayers, and also obtain a strand of red ribbon to make your wish. 
+				The threads are free; but there’s a donation box right next to it.
+				You can then write your name and wishes on the cloth (a table and marker pens are provided)</p>
+			</div> 
+	   </div>
+    </section>
+
+    <section id="conclusion" class="reveal">
+        <div class="card" style="border-top: 8px solid var(--forest); text-align: center;">
+            <h2>7. Conclusion</h2>
+            <p style="font-size: 1.2rem; margin-top: 20px;">
+                Sekinchan stands as a testament to the symbiotic relationship between humans and nature. To ensure its future as a leader in agriculture and a sanctuary for travelers, we must prioritize the protection of its environment today.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>SEKINCHAN</h4>
+                <p>For the SIH2024 Environmental Informatics course, I developed a website showcasing Sekinchan as my hometown, highlighting its environmental ecosystem, key environmental issues, and tourism attractions.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <p><a href="#intro">Introduction</a></p>
+                <p><a href="#ecosystem">Ecosystem</a></p>
+                <p><a href="#coastal">Coastal</a></p>
+                <p><a href="#issues">Issues</a></p>
+				<p><a href="#sustainability">Sustainability</a></p>
+                <p><a href="#tourism">Tourism</a></p>
+            </div>
+			<a href="About Me.html"> ThankYou </a>
+            
+        </div>
+        <div style="text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>Made by Nur Aina Fatiha (23001498).</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Go to top">↑</button>
+
+    <script>
+        // 1. Scroll Reveal Logic
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // 2. Smooth Scrolling for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 3. Back to Top Button
+        const btt = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            btt.style.display = window.scrollY > 400 ? 'block' : 'none';
+        });
+        btt.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

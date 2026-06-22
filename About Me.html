@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <style>
+        /* Base Styles & Light Purple Theme Colors */
+        :root {
+            --bg-color: #f7f5fa;       /* Very light lavender/white */
+            --primary-purple: #9c8cb9; /* Soft medium purple */
+            --dark-purple: #4a3e63;    /* Deep purple for text */
+            --accent-purple: #e8e2f2;  /* Light purple for cards/backgrounds */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark-purple);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 3px solid var(--accent-purple);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--primary-purple);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-style: italic;
+            color: #7a6e93;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 6px rgba(156, 140, 185, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .about-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+			object-fit: cover;
+            background-color: var(--primary-purple); /* Placeholder if you don't have an image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .about-text h2 {
+            margin-bottom: 10px;
+            color: var(--primary-purple);
+        }
+
+        /* Blog Section */
+        .blog-section h2 {
+            margin-bottom: 20px;
+            color: var(--dark-purple);
+            border-left: 5px solid var(--primary-purple);
+            padding-left: 10px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(156, 140, 185, 0.05);
+            transition: transform 0.2s;
+            border: 1px solid var(--accent-purple);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-purple);
+        }
+
+        .blog-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .blog-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--accent-purple);
+            font-size: 0.9rem;
+            color: #7a6e93;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Welcome to My Space</h1>
+            <p>Thoughts, stories, and everything in between.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Me Section -->
+        <section class="about-section">
+            <!-- Replace the div below with an <img src="your-image.jpg" alt="Me" class="about-img"> if you have one -->
+            
+            <img src="AINA.jpeg" alt="Me" class="about-img">
+            
+            <div class="about-text">
+                <h2>Hello, I'm Aina 👋</h2>
+                <p>Welcome to my personal blog! I am a university student that passionate in writing blog. I love sharing my journey, things I learn along the way, and documentation of my daily life. Grab a cup of tea and enjoy your stay!</p>
+            </div>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section class="blog-section">
+            <h2>Recent Posts</h2>
+            <div class="blog-grid">
+                
+                <!-- Post 1 -->
+                <article class="blog-card">
+                    <span class="blog-date">June 8, 2026</span>
+                    <h3>SEKINCHAN (سكينچن)</h3>
+                    <p>For the SIH2024 Environmental Informatics course, I developed a website showcasing Sekinchan as my hometown, highlighting its environmental ecosystem, key environmental issues, and tourism attractions.</p>
+                    <a href="SEKINCHAN.html">Read More &rarr;</a>
+                </article>
+<!-- NEXT UPDATE SECTION AINA -->
+                <!-- Post 2 -->
+                <!--<article class="blog-card">
+                    <span class="blog-date">May 24, 2026</span>
+                    <h3>Finding Inspiration in Little Things</h3>
+                    <p>A quick reflection on how stepping away from screens helped me rediscover my creative spark last weekend.</p>
+                    <a href="#">Read More &rarr;</a>
+                </article>
+
+                <!-- Post 3 -->
+                <!--<article class="blog-card">
+                    <span class="blog-date">April 12, 2026</span>
+                    <h3>My Favorite Lavender Recipes</h3>
+                    <p>Sticking to the purple theme, here are my top three recipes featuring culinary lavender, from lattes to shortbread cookies.</p>
+                    <a href="#">Read More &rarr;</a>
+                </article>
+ -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ainaaftha. Built with 💜 and HTML.</p>
+    </footer>
+
+</body>
+</html>
